@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+class complex
+{
+  private: int real;
+           int img;
+           
+  public: void input();
+          void display();
+          friend complex addcomplx(complex,complex);
+          
+};
+
+void complex::input()
+{
+     cout<<"\nenter the real and imaginary part";
+     cin>>real>>img;
+}
+complex addcomplx(complex c1,complex c2)
+{
+  complex result;
+  result.real=c1.real+c2.real;
+  result.img=c1.img+c2.img;
+  return result;
+}
+void complex::display()
+{
+     cout<<"\ncomplex number is:"<<real<<"+"<<img<<"i";
+}
+int main()
+{
+    complex c1,c2,result;
+    cout<<"\nenter the first complex number ";
+    c1.input();
+    cout<<"\nenter the second complex number";
+    c2.input();
+    c1.display();
+    c2.display();
+    result=addcomplx(c1,c2);
+    result.display();
+    return 0;
+}
+    
+
